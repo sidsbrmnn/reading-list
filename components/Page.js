@@ -18,7 +18,7 @@ const Page = ({ children, title }) => {
           crossorigin="anonymous"
         />
       </Head>
-      <Navbar />
+      <Navbar brand={title} />
       {children}
     </React.Fragment>
   );
