@@ -23,5 +23,21 @@
     "next": "^9.0.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidsbrmnn/reading-list.git"
+  },
+  "keywords": [
+    "react",
+    "node",
+    "nextjs",
+    "mongoose",
+    "express"
+  ],
+  "bugs": {
+    "url": "https://github.com/sidsbrmnn/reading-list/issues"
+  },
+  "homepage": "https://github.com/sidsbrmnn/reading-list#readme"
 }
