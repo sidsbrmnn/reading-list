@@ -1,9 +1,9 @@
-const compression = require("compression");
-const helmet = require("helmet");
-const logger = require("morgan");
+const compression = require('compression');
+const helmet = require('helmet');
+const logger = require('morgan');
 
 module.exports = function(server) {
-  server.use(compression());
-  server.use(helmet());
-  server.use(logger("dev"));
+    server.use(compression());
+    server.use(helmet());
+    server.use(logger('dev'));
 };
