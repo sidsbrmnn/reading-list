@@ -3,14 +3,17 @@ require('dotenv').config();
 const express = require('express');
 const next = require('next');
 
+const { connectMongo } = require('./services/mongo');
+
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-app.prepare().then(() => {
+app.prepare().then(async () => {
     const server = express();
 
-    require('./services/db')();
+    await connectMongo();
+    console.log('Connected to MongoDB');
     if (process.env.NODE_ENV === 'production')
         require('./services/prod')(server);
     require('./services/routes')(server);
