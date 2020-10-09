@@ -1,8 +1,10 @@
+import type { AppProps } from 'next/app';
+
 import Header from '../components/header';
 
 import 'tailwindcss/tailwind.css';
 
-const App = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }: AppProps) => {
     return (
         <>
             <Header />
