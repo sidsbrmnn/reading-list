@@ -14,8 +14,10 @@ app.prepare().then(async () => {
 
     await connectMongo();
     console.log('Connected to MongoDB');
-    if (process.env.NODE_ENV === 'production')
+
+    if (process.env.NODE_ENV === 'production') {
         require('./services/prod')(server);
+    }
     require('./services/routes')(server);
 
     server.get('*', (req, res) => {
