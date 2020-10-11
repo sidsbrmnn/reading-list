@@ -1,7 +1,7 @@
-const { json, urlencoded } = require('body-parser');
+const bodyParser = require('body-parser');
 
-module.exports = function(server) {
-    server.use(json());
-    server.use(urlencoded({ extended: false }));
+module.exports = function (server) {
+    server.use(bodyParser.json());
+    server.use(bodyParser.urlencoded({ extended: false }));
     server.use('/api/books', require('../routes/books'));
 };
