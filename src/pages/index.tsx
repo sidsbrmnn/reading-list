@@ -1,4 +1,5 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 import Container from '../components/container';
 import Head from '../components/head';
@@ -11,21 +12,12 @@ type Book = {
 const defaultValues: Book = { title: '', author: '' };
 
 const HomePage = () => {
+    const { register, handleSubmit } = useForm<Book>({ defaultValues });
     const [books, setBooks] = useState<Book[]>([]);
-    const [book, setBook] = useState<Book>(defaultValues);
 
-    function handleChange(event: ChangeEvent<HTMLInputElement>) {
-        setBook({
-            ...book,
-            [event.currentTarget.name]: event.currentTarget.value,
-        });
-    }
-
-    function handleSubmit(event: FormEvent<HTMLFormElement>) {
-        event.preventDefault();
-
+    function onSubmit(values: Book) {
         const newBooks = [...books];
-        newBooks.push(book);
+        newBooks.push(values);
         setBooks(newBooks);
     }
 
@@ -41,7 +33,7 @@ const HomePage = () => {
 
                     <form
                         className="flex items-center max-w-2xl mx-auto mt-8 space-x-4"
-                        onSubmit={handleSubmit}
+                        onSubmit={handleSubmit(onSubmit)}
                     >
                         <div className="flex-grow">
                             <label className="sr-only" htmlFor="title">
@@ -53,8 +45,7 @@ const HomePage = () => {
                                 name="title"
                                 placeholder="Harry Potter"
                                 type="text"
-                                value={book.title}
-                                onChange={handleChange}
+                                ref={register({ required: true })}
                             />
                         </div>
 
@@ -68,8 +59,7 @@ const HomePage = () => {
                                 name="author"
                                 placeholder="JK Rowling"
                                 type="text"
-                                value={book.author}
-                                onChange={handleChange}
+                                ref={register({ required: true })}
                             />
                         </div>
 
