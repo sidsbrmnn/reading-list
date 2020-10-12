@@ -1,51 +1,33 @@
-import type { FormEvent } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 
 import Container from '../components/container';
 import Head from '../components/head';
 
-// TODO: Fix components
-// import BookList from '../components/BookList';
-// import NewBook from '../components/NewBook';
+type Book = {
+    title: string;
+    author: string;
+};
 
-// TODO: Fix API calls
-// import { addBook, getBooks, deleteBook } from '../utils/books';
+const defaultValues: Book = { title: '', author: '' };
 
 const HomePage = () => {
-    // const [books, setBooks] = useState([]);
+    const [books, setBooks] = useState<Book[]>([]);
+    const [book, setBook] = useState<Book>(defaultValues);
 
-    // async function updateBooks() {
-    //     const data = await getBooks();
-    //     setBooks(data);
-    // }
-
-    // useEffect(() => {
-    //     updateBooks();
-    // }, []);
-
-    // displayError = () => {
-    //     const error = this.state.error;
-    //     if (error)
-    //         return (
-    //             <div className="mb-0 alert alert-danger" role="alert">
-    //                 {error}
-    //             </div>
-    //         );
-    // };
+    function handleChange(event: ChangeEvent<HTMLInputElement>) {
+        setBook({
+            ...book,
+            [event.currentTarget.name]: event.currentTarget.value,
+        });
+    }
 
     function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        // TODO: Configure API call
+        const newBooks = [...books];
+        newBooks.push(book);
+        setBooks(newBooks);
     }
-
-    // async function handleDelete(book) {
-    //     const error = await deleteBook(book._id);
-    //     if (error) {
-    //         return;
-    //     }
-
-    //     updateBooks();
-    // }
 
     return (
         <>
@@ -71,6 +53,8 @@ const HomePage = () => {
                                 name="title"
                                 placeholder="Harry Potter"
                                 type="text"
+                                value={book.title}
+                                onChange={handleChange}
                             />
                         </div>
 
@@ -84,6 +68,8 @@ const HomePage = () => {
                                 name="author"
                                 placeholder="JK Rowling"
                                 type="text"
+                                value={book.author}
+                                onChange={handleChange}
                             />
                         </div>
 
@@ -105,7 +91,11 @@ const HomePage = () => {
 
             <section className="py-5">
                 <h1>Book List</h1>
-                {/* <BookList data={books} onDelete={handleDelete} /> */}
+                <ul>
+                    {books.map((item, id) => (
+                        <li key={id}>{`${item.title} - ${item.author}`}</li>
+                    ))}
+                </ul>
             </section>
         </>
     );
