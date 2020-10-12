@@ -1,8 +1,6 @@
 {
   "name": "reading-list",
-  "version": "1.0.0",
-  "description": "A reading list app using Next, Express & MongoDB",
-  "main": "index.js",
+  "private": true,
   "dependencies": {
     "axios": "^0.20.0",
     "next": "^9.5.4",
@@ -29,16 +27,5 @@
     "build": "next build",
     "dev": "next",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sidsbrmnn/reading-list.git"
-  },
-  "keywords": [],
-  "author": "Siddharth Subramanian <sidsbrmnn@gmail.com> (https://sidsbrmnn.github.io/)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sidsbrmnn/reading-list/issues"
-  },
-  "homepage": "https://github.com/sidsbrmnn/reading-list#readme"
+  }
 }
