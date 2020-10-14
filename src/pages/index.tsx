@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import Cookies from 'js-cookie';
+import { NextPage } from 'next';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import Container from '../components/container';
@@ -19,6 +21,10 @@ const defaultValues: Book = { title: '', author: '' };
 const HomePage: NextPage<Props> = ({ initialBooks }: Props) => {
     const { register, handleSubmit } = useForm<Book>({ defaultValues });
     const [books, setBooks] = useState<Book[]>(() => JSON.parse(initialBooks));
+
+    useEffect(() => {
+        Cookies.set('books', JSON.stringify(books));
+    }, [books]);
 
     function onSubmit(values: Book) {
         const newBooks = [...books];
