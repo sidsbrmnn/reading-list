@@ -3,17 +3,22 @@ import { useForm } from 'react-hook-form';
 
 import Container from '../components/container';
 import Head from '../components/head';
+import parseCookies from '../lib/parseCookies';
 
 type Book = {
     title: string;
     author: string;
 };
 
+type Props = {
+    initialBooks: string;
+};
+
 const defaultValues: Book = { title: '', author: '' };
 
-const HomePage = () => {
+const HomePage: NextPage<Props> = ({ initialBooks }: Props) => {
     const { register, handleSubmit } = useForm<Book>({ defaultValues });
-    const [books, setBooks] = useState<Book[]>([]);
+    const [books, setBooks] = useState<Book[]>(() => JSON.parse(initialBooks));
 
     function onSubmit(values: Book) {
         const newBooks = [...books];
@@ -89,6 +94,12 @@ const HomePage = () => {
             </section>
         </>
     );
+};
+
+HomePage.getInitialProps = async ({ req }) => {
+    const cookies = parseCookies(req);
+
+    return { initialBooks: cookies.books };
 };
 
 export default HomePage;
