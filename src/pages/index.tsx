@@ -105,7 +105,7 @@ const HomePage: NextPage<Props> = ({ initialBooks }: Props) => {
 HomePage.getInitialProps = async ({ req }) => {
     const cookies = parseCookies(req);
 
-    return { initialBooks: cookies.books };
+    return { initialBooks: cookies.books || '[]' };
 };
 
 export default HomePage;
