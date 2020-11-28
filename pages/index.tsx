@@ -50,7 +50,7 @@ const HomePage: NextPage<Props> = ({ initialBooks }) => {
                                 Title
                             </label>
                             <input
-                                className="w-full px-4 py-3 text-sm text-gray-900 placeholder-gray-500 transition duration-150 ease-in-out bg-gray-100 border border-transparent rounded-md appearance-none hover:border-blue-300 focus:border-blue-400 focus:outline-none"
+                                className="w-full px-4 py-3 text-sm text-gray-900 placeholder-gray-500 transition bg-gray-100 border border-transparent rounded-md appearance-none hover:border-blue-300 focus:border-blue-400 focus:outline-none"
                                 id="title"
                                 name="title"
                                 placeholder="Harry Potter"
@@ -64,7 +64,7 @@ const HomePage: NextPage<Props> = ({ initialBooks }) => {
                                 Author
                             </label>
                             <input
-                                className="w-full px-4 py-3 text-sm text-gray-900 placeholder-gray-500 transition duration-150 ease-in-out bg-gray-100 border border-transparent rounded-md appearance-none hover:border-blue-300 focus:border-blue-400 focus:outline-none"
+                                className="w-full px-4 py-3 text-sm text-gray-900 placeholder-gray-500 transition bg-gray-100 border border-transparent rounded-md appearance-none hover:border-blue-300 focus:border-blue-400 focus:outline-none"
                                 id="author"
                                 name="author"
                                 placeholder="JK Rowling"
@@ -74,7 +74,7 @@ const HomePage: NextPage<Props> = ({ initialBooks }) => {
                         </div>
 
                         <button
-                            className="px-4 py-3 text-sm font-medium text-white transition duration-150 ease-in-out bg-blue-600 rounded-md hover:bg-blue-500 focus:bg-blue-500 focus:outline-none"
+                            className="px-4 py-3 text-sm font-medium text-white transition bg-blue-600 rounded-md hover:bg-blue-500 focus:bg-blue-500 focus:outline-none"
                             type="submit"
                         >
                             Add book
