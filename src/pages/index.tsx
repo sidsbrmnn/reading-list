@@ -2,7 +2,6 @@ import Cookies from 'js-cookie';
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-
 import Container from '../components/container';
 import Head from '../components/head';
 import parseCookies from '../lib/parseCookies';
