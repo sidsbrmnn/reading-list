@@ -1,10 +1,11 @@
 import NextHead from 'next/head';
+import { FunctionComponent } from 'react';
 
 type Props = {
     title: string;
 };
 
-const Head = ({ title }: Props) => {
+const Head: FunctionComponent<Props> = ({ title }) => {
     return (
         <NextHead>
             <meta charSet="utf-8" />

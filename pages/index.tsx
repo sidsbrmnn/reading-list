@@ -17,7 +17,7 @@ type Props = {
 
 const defaultValues: Book = { title: '', author: '' };
 
-const HomePage: NextPage<Props> = ({ initialBooks }: Props) => {
+const HomePage: NextPage<Props> = ({ initialBooks }) => {
     const { register, handleSubmit } = useForm<Book>({ defaultValues });
     const [books, setBooks] = useState<Book[]>(() => JSON.parse(initialBooks));
 

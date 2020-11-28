@@ -1,7 +1,8 @@
 import Link from 'next/link';
+import { FunctionComponent } from 'react';
 import Container from './container';
 
-const Header = () => {
+const Header: FunctionComponent = () => {
     return (
         <header className="bg-gray-200">
             <Container>
