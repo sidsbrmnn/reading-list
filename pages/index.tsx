@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Container from '../components/container';
 import Head from '../components/head';
-import parseCookies from '../lib/parseCookies';
+import { parseCookies } from '../lib/cookies';
 
 type Book = {
     title: string;
